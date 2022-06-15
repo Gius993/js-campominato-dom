@@ -82,13 +82,36 @@
 		   //click
 		   newCell.addEventListener('click', handleCellClick)
 	   }
-   }
-   function handleCellClick (){
-	// click
-	alert('click')
-	//se una bomba il gioco finisce e compare una scritta
-	//altrimenti salvo il n nell'array fino a che non è piena e la cella diventa azzurra
-
+	   function handleCellClick (){
+	   // 	// click
+	   // 	this.classList.add('blue');
+	   // 	this.style.pointerEvents = 'none';
+	   // 	//se una bomba il gioco finisce e compare una scritta
+	   // 	//altrimenti salvo il n nell'array fino a che non è piena e la cella diventa azzurra
+		   const endGame = gameEnd - 16;
+		   let gamePlay = true;
+		   const numberCorrect = [];
+		   while(gamePlay){
+			   const userNumber = this.classList.add('blue');
+		   
+			   //use = bomba
+			   if(bomb.includes(userNumber)){
+			   gamePlay = false;
+			   alert('Perdi');
+			   } else {
+			   
+			   if(!numberCorrect.includes(userNumber)){
+				   
+				   numberCorrect.push(userNumber);
+			   }
+			   if (numberCorrect.length === endGame){
+				   gamePlay = false;
+				   alert('Vinci');
+			   }
+			   } 
+		   }
+	   
+		 }
    }
    function getRndInteger(min, max) {
 	  return Math.floor(Math.random() * (max - min + 1) ) + min;

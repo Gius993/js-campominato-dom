@@ -43,3 +43,9 @@ main{
 	height: calc(100% / 7);
 	
 }
+.blue{
+	background-color: blue;
+}
+.red{
+	background-color: red;
+}
