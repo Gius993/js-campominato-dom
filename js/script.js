@@ -84,33 +84,34 @@
 	   }
 	   function handleCellClick (){
 	   // 	// click
-	   // 	this.classList.add('blue');
-	   // 	this.style.pointerEvents = 'none';
+	  
+	   		this.style.pointerEvents = 'none';
 	   // 	//se una bomba il gioco finisce e compare una scritta
 	   // 	//altrimenti salvo il n nell'array fino a che non è piena e la cella diventa azzurra
 		   const endGame = gameEnd - 16;
 		   let gamePlay = true;
 		   const numberCorrect = [];
-		   while(gamePlay){
-			   const userNumber = this.classList.add('blue');
-		   
+		   let userNumber = this.querySelector('span'); 
+				   
 			   //use = bomba
 			   if(bomb.includes(userNumber)){
-			   gamePlay = false;
-			   alert('Perdi');
+			  
+			   	this.classList.add('red');
+			   	alert('Perdi');
 			   } else {
 			   
 			   if(!numberCorrect.includes(userNumber)){
 				   
 				   numberCorrect.push(userNumber);
+				   this.classList.add('blue');
 			   }
 			   if (numberCorrect.length === endGame){
 				   gamePlay = false;
 				   alert('Vinci');
 			   }
-			   } 
-		   }
-	   
+			 } 
+		
+			 console.log('red')
 		 }
    }
    function getRndInteger(min, max) {
