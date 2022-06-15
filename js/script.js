@@ -29,17 +29,22 @@
  playBtn.addEventListener('click', startGame);
 
  function startGame() {
-	const userLevel = prompt('Dimmi livello da 1 a 3');
-  
+	//html elements
+	const mainGrid = document.querySelector('#grid');
+	const userLevel = document.querySelector('#user-level').value;
+	let mainGridClass;
 	let gameEnd;
 	// B
    
    if(userLevel === '1') {
 	   gameEnd = 100;
+	   mainGridClass = 'easy'
    }else if(userLevel === '2'){
 	   gameEnd = 81;
+	   mainGridClass = 'hard'
    }else if(userLevel === '3') {
 	   gameEnd = 49;
+	   mainGridClass = 'crazy'
 	   
    }
    
@@ -58,8 +63,22 @@
 	   console.log(randomBombArray);
 	   return randomBombArray;
    }
+   //generare la griglia
+   generateGrid();
+   //funzione che popola grid
+   function generateGrid (){
+	   //crea cella
+	   mainGrid.classList.add(mainGridClass);
+	   //testo
+	   for (let i = 1; i <= gameEnd; i++ ) {
+		   
+		   const newCell = document.createElement('div')
+		   newCell.innerHTML = `<span>${i}</span>`;
+		   newCell.classList.add('square');
+		   mainGrid.append(newCell);
+	   }
+   }
+   function getRndInteger(min, max) {
+	  return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
  }
-
- function getRndInteger(min, max) {
-	return Math.floor(Math.random() * (max - min + 1) ) + min;
-}

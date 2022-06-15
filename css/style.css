@@ -15,7 +15,31 @@ main{
 	padding: 50px;
 }
 #grid{
+	display: flex;
+	flex-wrap:wrap ;
 	width: 600px;
 	height: 600px;
 	background-color: aquamarine
+
+}
+
+.square{
+	border: 1px solid black;
+	
+}
+
+#grid.easy .square{
+	width: calc(100% / 10);
+	height: calc(100% / 10);
+
+}
+#grid.hard .square{
+	width: calc(100% / 9);
+	height: calc(100% / 9);
+	
+}
+#grid.crazy .square{
+	width: calc(100% / 7);
+	height: calc(100% / 7);
+	
 }
