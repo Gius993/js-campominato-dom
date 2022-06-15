@@ -79,7 +79,16 @@
 		   newCell.innerHTML = `<span>${i}</span>`;
 		   newCell.classList.add('square');
 		   mainGrid.append(newCell);
+		   //click
+		   newCell.addEventListener('click', handleCellClick)
 	   }
+   }
+   function handleCellClick (){
+	// click
+	alert('click')
+	//se una bomba il gioco finisce e compare una scritta
+	//altrimenti salvo il n nell'array fino a che non è piena e la cella diventa azzurra
+
    }
    function getRndInteger(min, max) {
 	  return Math.floor(Math.random() * (max - min + 1) ) + min;
