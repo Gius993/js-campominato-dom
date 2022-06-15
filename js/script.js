@@ -29,8 +29,11 @@
  playBtn.addEventListener('click', startGame);
 
  function startGame() {
+	 const mainGrid = document.querySelector('#grid');
+	//reset
+	mainGrid.innerHTML = '';
+	mainGrid.className = '';
 	//html elements
-	const mainGrid = document.querySelector('#grid');
 	const userLevel = document.querySelector('#user-level').value;
 	let mainGridClass;
 	let gameEnd;
