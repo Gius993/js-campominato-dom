@@ -29,7 +29,7 @@
  playBtn.addEventListener('click', startGame);
 
  function startGame() {
-	 const mainGrid = document.querySelector('#grid');
+	const mainGrid = document.querySelector('#grid');
 	//reset
 	mainGrid.innerHTML = '';
 	mainGrid.className = '';
@@ -78,43 +78,37 @@
 		   const newCell = document.createElement('div')
 		   newCell.innerHTML = `<span>${i}</span>`;
 		   newCell.classList.add('square');
-		   mainGrid.append(newCell);
 		   //click
-		   newCell.addEventListener('click', handleCellClick)
+		   newCell.addEventListener('click', handleCellClick);
+		   mainGrid.append(newCell);
 	   }
-	   function handleCellClick (){
-	   // 	// click
-	  
-	   		this.style.pointerEvents = 'none';
-	   // 	//se una bomba il gioco finisce e compare una scritta
-	   // 	//altrimenti salvo il n nell'array fino a che non è piena e la cella diventa azzurra
-		   const endGame = gameEnd - 16;
-		   let gamePlay = true;
-		   const numberCorrect = [];
-		   let userNumber = this.querySelector('span'); 
-				   
-			   //use = bomba
-			   if(bomb.includes(userNumber)){
-			  
-			   	this.classList.add('red');
-			   	alert('Perdi');
-			   } else {
-			   
+	   	function handleCellClick (){
+		
+	   		// click
+			this.style.pointerEvents = 'none';
+	   		//se una bomba il gioco finisce e compare una scritta
+	   		//altrimenti salvo il n nell'array fino a che non è piena e la cella diventa azzurra
+		   		   
+		   	const numberCorrect = [];
+		   	let userNumber = parseInt(this.querySelector('span').innerHTML);   
+			//use = bomba
+			if(bomb.includes(userNumber)){
+				
+			  this.classList.add('red');
+			  alert('perdi');
+			} else {
 			   if(!numberCorrect.includes(userNumber)){
-				   
 				   numberCorrect.push(userNumber);
 				   this.classList.add('blue');
 			   }
-			   if (numberCorrect.length === endGame){
-				   gamePlay = false;
-				   alert('Vinci');
+			   if (numberCorrect.length === (gameEnd - 16)){
+				   alert('Vinci');					
+
 			   }
-			 } 
-		
-			 console.log('red')
-		 }
+			}
+		}
    }
    function getRndInteger(min, max) {
 	  return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
- }
+}
