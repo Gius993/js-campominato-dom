@@ -14,12 +14,15 @@ main{
 	justify-content: center;
 	padding: 50px;
 }
+body{
+	background-color: rgba(0, 0, 0, 0.6);
+}
 #grid{
 	display: flex;
 	flex-wrap:wrap ;
 	width: 600px;
 	height: 600px;
-	background-color: aquamarine
+	background-color: rgb(206, 242, 230)
 
 }
 
@@ -48,4 +51,10 @@ main{
 }
 .red{
 	background-color: red;
+}
+img{
+	width: 100%;
+}
+.img-container{
+	width: 500px;
 }
